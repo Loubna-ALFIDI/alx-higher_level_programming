@@ -1,0 +1,56 @@
+The ``2-matrix_divided`` module
+
+Using ``matrix_divided``
+--------------------
+
+This is an example text file in reStructuredText format.  First import
+``matrix_divided`` from the ``2-matrix_divided`` module:
+
+        Now use it:
+    
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [
+    ...     [3, -2, -3],
+    ...     [12.5, 1.5, -18.6]
+    ... ]
+    >>> print(matrix_divided(matrix, 3))
+    [[1.0, -0.67, -1.0], [4.17, 0.5, -6.2]]
+
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [
+    ...     [100, 'two', 5],
+    ...     [4, 163, 1]
+    ... ]
+    >>> print(matrix_divided(matrix, '3'))
+    Traceback (most recent call last):
+    TypeError: div must be an integer
+
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [
+    ...     [3.5, -6, 100.9],
+    ...     [-12, -15.3, 1.8, 7]
+    ... ]
+    >>> print(matrix_divided(matrix, 3))
+    Traceback (most recent call last):
+    TypeError: Each row of the matrix must have the same size
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [
+    ...     [3, 56, 9],
+    ...     [12, 135, 18]
+    ... ]
+    >>> print(matrix_divided(matrix, 'three'))
+    Traceback (most recent call last):
+    TypeError: div must be an integer
+
+
+    >>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+    >>> matrix = [
+    ...     [3, -5, 9],
+    ...     [12, 15, 18]
+    ... ]
+    >>> print(matrix_divided(matrix, 0))
+    Traceback (most recent call last):
+    ZeroDivisionError: division by zero

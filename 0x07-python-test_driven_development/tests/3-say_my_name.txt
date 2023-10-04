@@ -1,0 +1,30 @@
+The ``3-say_my_name`` module
+
+Using ``say_my_name``
+--------------------
+
+This is an example text file in reStructuredText format.  First import
+``say_my_name`` from the ``3-say_my_name`` module:
+
+        Now use it:
+    
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name('hicham', 'fhad')
+    My name is hicham fhad
+
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name('45', luffy)
+    Traceback (most recent call last):
+    NameError: name 'luffy' is not defined
+
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name(55, 44)
+    Traceback (most recent call last):
+    TypeError: first_name must be a string
+    
+    
+    >>> say_my_name = __import__('3-say_my_name').say_my_name
+    >>> say_my_name('monkey', 'D', 'luffy')
+    Traceback (most recent call last):
+    TypeError: say_my_name() takes from 1 to 2 positional arguments but 3 were given
