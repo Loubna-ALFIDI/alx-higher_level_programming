@@ -10,7 +10,7 @@ This is an example text file in reStructuredText format.  First import
     
     >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
     >>> print(matrix_mul([[-1, 2], [3.5, 4]], [[150, 2], [0, -4.4]]))
-    None
+    [[-150, -10.8], [525.0, -10.600000000000001]]
 
     >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
     >>> matrix_mul()
