@@ -1,0 +1,56 @@
+The ``1-my_list`` module
+
+Using ``MyList``
+--------------------
+
+This is an example text file in reStructuredText format.  First import
+``MyList`` from the ``1-my_list`` module:
+
+        Now use it:
+    
+    --------------------normal case 
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> my_list.append(100)
+    >>> my_list.append(5)
+    >>> my_list.append(7)
+    >>> my_list.append(0)
+    >>> my_list.append(20)
+    >>> print(my_list)
+    [100, 5, 7, 0, 20]
+    >>> my_list.print_sorted()
+    [0, 5, 7, 20, 100]
+    >>> print(my_list)
+    [100, 5, 7, 0, 20]
+
+    --------------------case negative numbers
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> my_list.append(-100)
+    >>> my_list.append(-5)
+    >>> my_list.append(7)
+    >>> my_list.append(0)
+    >>> my_list.append(-20)
+    >>> print(my_list)
+    [-100, -5, 7, 0, -20]
+    >>> my_list.print_sorted()
+    [-100, -20, -5, 0, 7]
+    >>> print(my_list)
+    [-100, -5, 7, 0, -20]
+
+    --------------------case no object 
+    
+    >>> MyList = __import__('1-my_list').MyList
+    >>> mylist2.print_sorted()
+    Traceback (most recent call last):
+    NameError: name 'mylist2' is not defined
+
+    --------------------case empty list
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> a = []
+    >>> my_list = MyList(a)
+    >>> my_list.print_sorted()
+    []
