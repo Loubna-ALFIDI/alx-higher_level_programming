@@ -1,0 +1,100 @@
+The ``7-base_geometry`` module
+
+Using ``BaseGeometry``
+--------------------
+
+This is an example text file in reStructuredText format.  First import
+``BaseGeometry`` from the ``7-base_geometry`` module:
+
+        Now use it:
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("my_int", 12)
+    
+    --------------------case negative numbers
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("my_int", -4)
+    Traceback (most recent call last):
+    ValueError: my_int must be greater than 0
+
+    --------------------case string
+    
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("my_int", "two")
+    Traceback (most recent call last):
+    TypeError: my_int must be an integer
+
+    --------------------case empty
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator()
+    Traceback (most recent call last):
+    TypeError: BaseGeometry.integer_validator() missing 2 required positional arguments: 'name' and 'value'
+
+    --------------------case print area
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.area()
+    Traceback (most recent call last):
+    Exception: area() is not implemented
+
+    --------------------case no value 
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name")
+    Traceback (most recent call last):
+    TypeError: BaseGeometry.integer_validator() missing 1 required positional argument: 'value'
+
+    --------------------case
+    
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", "6")
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+    --------------------case
+    
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", 6, 7)
+    Traceback (most recent call last):
+    TypeError: BaseGeometry.integer_validator() takes 3 positional arguments but 4 were given
+
+    --------------------case
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", None)
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+    --------------------case bool
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", True)
+    Traceback (most recent call last):
+
+    --------------------case float
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", 12.4)
+    Traceback (most recent call last):
+    TypeError: name must be an integer
+
+    --------------------case 0
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+    >>> bg = BaseGeometry()
+    >>> bg.integer_validator("name", 0)
+    Traceback (most recent call last):
+    ValueError: name must be greater than 0
