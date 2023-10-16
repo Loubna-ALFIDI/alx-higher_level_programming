@@ -1,15 +1,16 @@
 #!/usr/bin/python3
-"""test module for base"""
+"""test module for rectangle"""
 import os
 import sys
+import unittest
+from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 current_path = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(current_path, '..'))
 sys.path.insert(0, project_root)
-import unittest
-from models.base import Base
-from models.rectangle import Rectangle
 
 
 class TestRectangle(unittest.TestCase):
@@ -154,6 +155,16 @@ class TestRectangle(unittest.TestCase):
         msg4 = "[Rectangle] (89) 1/3 - 4/2"
         self.assertEqual(str(r), msg4)
 
-    
+        def test_to_dict(self):
+            """test to dict"""
+            Base._Base__nb_objects = 0
+            r1 = Rectangle(10, 2, 1, 9)
+            self.assertEqual(str(r1), "[Rectangle] (1) 1/9 - 10/2")
+            self.assertEqual(r1.to_dictionary(), {'x': 1, 'y': 9, 'id': 1, 'width': 10, 'height': 2})
+            r2 = Rectangle(1, 1)
+            self.assertEqual(str(r2), "[Rectangle] (2) 0/0 - 1/1")
+            self.assertEqual(r2.to_dictionary(), {'x': 0, 'y': 0, 'id': 2, 'width': 1, 'height': 1})
+
+
 if __name__ == '__main__':
     unittest.main()

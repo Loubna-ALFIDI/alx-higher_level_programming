@@ -1,16 +1,17 @@
 #!/usr/bin/python3
-"""test module for base"""
+"""test module for square"""
 import os
 import sys
+import unittest
+from models.base import Base
+from models.rectangle import Rectangle
+from models.square import Square
 
 
 current_path = os.path.dirname(os.path.abspath(__file__))
 project_root = os.path.abspath(os.path.join(current_path, '..'))
 sys.path.insert(0, project_root)
-import unittest
-from models.base import Base
-from models.rectangle import Rectangle
-from models.square import Square
+
 
 class testSquare(unittest.TestCase):
     def test_is_inheritance(self):
@@ -104,6 +105,21 @@ class testSquare(unittest.TestCase):
         self.assertEqual(str(s), "[Square] (1) 3/0 - 2")
         s.update(1, 2, 3, 4)
         self.assertEqual(str(s), "[Square] (1) 3/4 - 2")
+        s.update(x=12)
+        self.assertEqual(str(s), "[Square] (1) 12/4 - 2")
+        s.update(size=7, x=1)
+        self.assertEqual(str(s), "[Square] (1) 1/4 - 7")
+        s.update(size=7, id=89, y=1)
+        self.assertEqual(str(s), "[Square] (89) 1/1 - 7")
+
+        def test_to_dict(self):
+            """test to dict"""
+            s1 = Square(10, 2, 1)
+            self.assertEqual(str(s1), "[Square] (1) 2/1 - 10")
+            self.assertEqual(s1.to_dictionary(), {'id': 1, 'x': 2, 'size': 10, 'y': 1})
+            s2 = Square(1, 1)
+            self.assertEqual(str(s2), "[Square] (1) 1/1 - 1")
+            self.assertEqual(s2.to_dictionary(), {'id': 1, 'size': 1, 'x': 1, 'y': 1})
 
 if __name__ == '__main__':
     unittest.main()
