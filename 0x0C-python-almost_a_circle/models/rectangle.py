@@ -15,27 +15,27 @@ class Rectangle(Base):
 
     @property
     def width(self):
-        """ width getter """
+        """ width """
         return self.__width
 
     @width.setter
     def width(self, value):
-        """ width setter """
-        if not isinstance(value, int):
+        """width setter"""
+        if type(value) is not int:
             raise TypeError("width must be an integer")
         if value <= 0:
-            raise ValueError("height must be > 0")
+            raise ValueError("width must be > 0")
         self.__width = value
 
     @property
     def height(self):
-        """ height getter """
+        """ height """
         return self.__height
 
     @height.setter
     def height(self, value):
         """ height setter """
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
@@ -43,13 +43,13 @@ class Rectangle(Base):
 
     @property
     def x(self):
-        """ x getter """
+        """ x """
         return self.__x
 
     @x.setter
     def x(self, value):
         """ x setter """
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -57,24 +57,24 @@ class Rectangle(Base):
 
     @property
     def y(self):
-        """ y getter """
+        """ y """
         return self.__y
 
     @y.setter
     def y(self, value):
         """ y setter """
-        if not isinstance(value, int):
+        if type(value) is not int:
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
         self.__y = value
 
     def area(self):
-        """area"""
+        """ area """
         return self.__width * self.__height
 
     def display(self):
-        """display"""
+        """ display """
         for i in range(self.__y):
             print()
         for i in range(self.__height):
@@ -85,39 +85,52 @@ class Rectangle(Base):
             print()
 
     def __str__(self):
-        """str"""
-        return "[Rectangle] ({}) {}/{} - {}/{}" \
-            .format(self.id, self.__x, self.__y, self.__width, self.__height)
+        """ str """
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(
+            self.id, self.__x, self.__y, self.__width, self.__height)
 
     def update(self, *args, **kwargs):
-        """update"""
-        if args and len(args) != 0:
-            for i, arg in enumerate(args):
-                if i == 0:
-                    self.id = arg
-                if i == 1:
-                    self.width = arg
-                if i == 2:
-                    self.height = arg
-                if i == 3:
-                    self.x = arg
-                if i == 4:
-                    self.y = arg
-        else:
+        """ update """
+        if args and len(args) == 0:
+            return
+        elif len(args) == 1:
+            self.id = args[0]
+        elif len(args) == 2:
+            self.id = args[0]
+            self.width = args[1]
+        elif len(args) == 3:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+        elif len(args) == 4:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+        elif len(args) == 5:
+            self.id = args[0]
+            self.width = args[1]
+            self.height = args[2]
+            self.x = args[3]
+            self.y = args[4]
+        elif kwargs and len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == "id":
-                    self.id = value
-                if key == "width":
+                    if value is None:
+                        self.__init__(self.width, self.height, self.x, self.y)
+                    else:
+                        self.id = value
+                elif key == "width":
                     self.width = value
-                if key == "height":
+                elif key == "height":
                     self.height = value
-                if key == "x":
+                elif key == "x":
                     self.x = value
-                if key == "y":
+                elif key == "y":
                     self.y = value
 
     def to_dictionary(self):
-        """to_dictionary"""
+        """ to_dictionary """
         return {
             "id": self.id,
             "width": self.width,
