@@ -9,6 +9,7 @@ import turtle
 class Base:
     """ Base class"""
     __nb_objects = 0
+
     def __init__(self, id=None):
         if id is not None:
             self.id = id
@@ -109,7 +110,7 @@ class Base:
                 myturtle.forward(rectangle.height)
                 myturtle.left(90)
             myturtle.hideturtle()
-        
+
         myturtle.color("EA0019")
         for square in list_squares:
             myturtle.showturtle()
@@ -122,5 +123,5 @@ class Base:
                 myturtle.forward(square.height)
                 myturtle.left(90)
             myturtle.hideturtle()
-        
+
         myturtle.done()
