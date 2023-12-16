@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+'''Selec states'''
 
 
 if __name__ == '__main__':
