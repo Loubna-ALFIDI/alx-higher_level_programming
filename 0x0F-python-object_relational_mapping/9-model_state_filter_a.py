@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""Start link class to table in database
-"""
+'''model state filter'''
 
 
 if __name__ == "__main__":
