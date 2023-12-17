@@ -22,5 +22,5 @@ if __name__ == "__main__":
         if state:
             print(f"{state.id}: {state.name}")
         else:
-            print("No states found.")
+            print("Nothing")
     engine.dispose()
