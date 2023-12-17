@@ -1,7 +1,6 @@
 #!/usr/bin/python3
 '''First state'''
 
-
 if __name__ == "__main__":
     """ Start link class to table in database"""
     import sys
@@ -14,12 +13,12 @@ if __name__ == "__main__":
         ),
         pool_pre_ping=True,
     )
-    query = select(State).order_by(State.id.asc())
     with engine.connect() as connection:
         # Use order_by with first directly
-        state = connection.execute(query).first()
+        state = connection.execute(select(State).order_by(State.id.asc())).first()
         if state:
             print(f"{state.id}: {state.name}")
         else:
             print("No states found.")
+
     engine.dispose()
