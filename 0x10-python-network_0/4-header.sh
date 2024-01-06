@@ -1,3 +1,3 @@
 #!/bin/bash
-#cURL head3rs
+#cURL headers
 curl -sH X-School-User-Id:98 "$1"
