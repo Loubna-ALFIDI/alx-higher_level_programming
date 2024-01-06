@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 """Email"""
 from sys import argv
-import urllib.request, urllib.parse
+import urllib.request
+import urllib.parse
 
 
 if __name__ == "__main__":
