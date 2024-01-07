@@ -15,7 +15,7 @@ if __name__ == "__main__":
     res = requests.post(url, data)
     try:
         json_response = res.json()
-        if json_response:
+        if 'id' in json_response and 'name' in json_response:
             print("[{}] {}".format(json_response['id'], json_response['name']))
         else:
             print("No result")
