@@ -13,4 +13,5 @@ if __name__ == "__main__":
     r = requests.get(url)
     commits = r.json()
     for c in commits:
-        print("{}: {}".format(c.get('sha'), c.get('commit').get('author').get('name')))
+        print("{}: {}"
+              .format(c.get('sha'), c.get('commit').get('author').get('name')))
