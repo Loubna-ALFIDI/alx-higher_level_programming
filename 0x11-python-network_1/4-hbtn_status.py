@@ -6,9 +6,8 @@ if __name__ == "__main__":
     """ Main Function """
     url = 'https://alx-intranet.hbtn.io/status'
     res = requests.get(url)
-
-    html = res.content
+    data = res.text
+    res_type = type(data)
     print("Body response:")
-    print("\t- type: {}".format(type(html)))
-    print("\t- content: {}".format(html))
-    print("\t- utf8 content: {}".format(html.decode('utf-8')))
+    print("\t- type: {}".format(res_type))
+    print("\t- content: {}".format(data))
